@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.core.view.marginTop
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.tictactoe.databinding.FragmentGameBinding
@@ -35,7 +32,7 @@ class GameFragment : Fragment() {
     private fun setUp() {
         val args: GameFragmentArgs by navArgs()
         val displayMetrics = requireContext().resources.displayMetrics
-        val width = displayMetrics.widthPixels / displayMetrics.density
+        val width = 2 * displayMetrics.widthPixels / displayMetrics.density
         val size = args.gridSize
         for (i in 0 until size * size) {
             list.add(Square(R.drawable.square, width / size, false))
