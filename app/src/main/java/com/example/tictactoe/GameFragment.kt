@@ -15,7 +15,7 @@ class GameFragment : Fragment() {
     private var binding: FragmentGameBinding? = null
     private lateinit var adapter: Adapter
     private val list = mutableListOf<Square>()
-    private var move = 1;
+    private var move = 1
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +32,8 @@ class GameFragment : Fragment() {
     private fun setUp() {
         val args: GameFragmentArgs by navArgs()
         val displayMetrics = requireContext().resources.displayMetrics
-        val width = 2 * displayMetrics.widthPixels / displayMetrics.density
+        val width = displayMetrics.widthPixels.toFloat()
+        //val width = 2 * displayMetrics.widthPixels / displayMetrics.density
         val size = args.gridSize
         for (i in 0 until size * size) {
             list.add(Square(R.drawable.square, width / size, false))
